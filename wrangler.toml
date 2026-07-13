@@ -1,0 +1,10 @@
+name = "anchor-hub"
+main = "src/index.js"
+compatibility_date = "2026-01-01"
+
+# ערכים ציבוריים (המפתח האנונימי של Supabase ציבורי בכל מקרה — הוא נשלח לכל דפדפן).
+# סודות אמיתיים (TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID, WEBHOOK_SECRET) מוגדרים
+# כ-Secrets דרך ה-workflow או: npx wrangler secret put <NAME>
+[vars]
+SUPABASE_URL = "https://dhrctqjxbdlwfxabinbr.supabase.co"
+SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRocmN0cWp4YmRsd2Z4YWJpbmJyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE3NjM1MDUsImV4cCI6MjA5NzMzOTUwNX0.MlmRsagJbAVAwiKMZTBDQ8K1AVTB45EJzhdrZMR2fmY"

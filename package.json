@@ -1,0 +1,15 @@
+{
+  "name": "anchor-hub",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "רכזת אוטומציות: מחברת בין בוט הטלגרם למערכות שלי",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "wrangler": "^3.90.0"
+  }
+}

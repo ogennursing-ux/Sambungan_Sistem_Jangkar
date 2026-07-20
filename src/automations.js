@@ -52,17 +52,21 @@ export async function runAutomations(event, payload, env, rules = RULES) {
       try {
         if (action.type === 'telegram.message') {
           await sendText(env, fill(action.text, payload));
+          ran++;
         } else if (action.type === 'telegram.document') {
           const url = fill(action.url, payload);
-          if (url) await sendDocument(env, url, fill(action.caption || '', payload));
+          if (url) {
+            await sendDocument(env, url, fill(action.caption || '', payload));
+            ran++;
+          }
         } else if (action.type === 'webhook.post') {
           await fetch(fill(action.url, payload), {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify({ event, ...payload }),
           });
+          ran++;
         }
-        ran++;
       } catch (e) {
         console.error(`automation failed (${event} -> ${action.type}):`, e.message);
       }

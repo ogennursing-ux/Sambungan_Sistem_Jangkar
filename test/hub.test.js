@@ -49,6 +49,13 @@ test('unknown event runs nothing', async () => {
   assert.equal(await runAutomations('no.such.event', {}, ENV), 0);
 });
 
+test('skipped document (missing fileUrl) is not counted as run', async () => {
+  const ran = await runAutomations('document.signed', { title: 'חוזה' }, ENV);
+  assert.equal(ran, 1); // only the message; the document has no url so it is skipped
+  assert.equal(calls.length, 1);
+  assert.ok(calls[0].url.includes('/sendMessage'));
+});
+
 test('foreign chat is refused', async () => {
   await handleTelegramUpdate({ message: { chat: { id: 999 }, text: '/סטטוס' } }, ENV);
   assert.equal(calls.length, 1);
